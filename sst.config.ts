@@ -1,13 +1,20 @@
-/// <reference path="./.sst/platform/config.d.ts" />
-export default $config({
-  app(input) {
+import { SSTConfig } from "sst";
+import { NextjsSite } from "sst/constructs";
+
+export default {
+  config(_input) {
     return {
       name: "aws-nextjs",
-      removal: input?.stage === "production" ? "retain" : "remove",
-      home: "aws",
+      region: "ap-southeast-1",
     };
   },
-  async run() {
-    new sst.aws.Nextjs("MyWeb");
+  stacks(app) {
+    app.stack(function Site({ stack }) {
+      const site = new NextjsSite(stack, "site");
+
+      stack.addOutputs({
+        SiteUrl: site.url,
+      });
+    });
   },
-});
+} satisfies SSTConfig;
