@@ -1,4 +1,13 @@
 import type { StorybookConfig } from "@storybook/nextjs";
+import type { AddonOptionsWebpack } from '@storybook/addon-coverage';
+
+const coverageConfig: AddonOptionsWebpack = {
+  istanbul: {
+    include: ['**/app/components/**/*/*.stories.tsx'],
+    exclude: ['**/exampleDirectory/**'],
+  },
+};
+ 
 
 const config: StorybookConfig = {
   stories: [
