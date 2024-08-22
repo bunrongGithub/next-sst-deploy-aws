@@ -23,7 +23,7 @@ jobs:
         run: npm install
 
       - name: Install Playwright browsers
-        run: npm playwright install
+        run: npm i playwright
         # This installs the required Playwright browsers
 
       - name: Start Storybook
