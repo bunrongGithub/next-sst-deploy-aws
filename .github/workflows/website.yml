@@ -35,7 +35,8 @@ jobs:
 
       - name: Run tests with coverage
         run: npm run test-storybook:coverage
-
+      - name: List available scripts
+        run: npm run
       - name: Check coverage threshold
         run: |
           COVERAGE=$(grep -o '"statements": [0-9.]*' ./coverage/coverage-summary.json | awk '{print $2}')
