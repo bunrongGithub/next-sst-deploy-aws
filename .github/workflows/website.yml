@@ -22,21 +22,21 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: List available npm scripts
+        run: npm run
+
       - name: Install Playwright browsers
         run: npm i playwright
-        # This installs the required Playwright browsers
 
       - name: Start Storybook
         run: npm run storybook --ci --port 6006 &
-        # This command starts Storybook in the background
 
       - name: Wait for Storybook to be available
         run: npx wait-on http://127.0.0.1:6006
 
       - name: Run tests with coverage
         run: npm run test-storybook:coverage
-      - name: Run teste storybook
-        run: npm run test-storybook
+
       - name: Check coverage threshold
         run: |
           COVERAGE=$(grep -o '"statements": [0-9.]*' ./coverage/coverage-summary.json | awk '{print $2}')
@@ -59,7 +59,6 @@ jobs:
 
       - name: Stop Storybook
         run: kill $(lsof -t -i:6006)
-        # This command stops the Storybook process
 
   deploy:
     runs-on: ubuntu-latest
