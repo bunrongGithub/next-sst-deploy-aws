@@ -34,7 +34,7 @@ jobs:
         run: npx wait-on http://127.0.0.1:6006
 
       - name: Run tests with coverage
-        run: npm run test-storybook --coverage
+        run: npm run test-storybook:coverage
 
       - name: Check coverage threshold
         run: |
