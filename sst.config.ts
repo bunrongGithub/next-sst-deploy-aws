@@ -5,7 +5,7 @@ export default {
   config(_input) {
     return {
       name: "aws-nextjs",
-      region: "ap-southeast-1",
+      region: "us-east-1",
     };
   },
   stacks(app) {
