@@ -27,7 +27,7 @@ jobs:
         # This installs the required Playwright browsers
 
       - name: Start Storybook
-        run: npm storybook --ci --port 6006 &
+        run: npm run storybook --ci --port 6006 &
         # This command starts Storybook in the background
 
       - name: Wait for Storybook to be available
