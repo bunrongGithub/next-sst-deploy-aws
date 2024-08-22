@@ -25,7 +25,7 @@ jobs:
       - name: List available npm scripts
         run: npm run
       - name: Install Playwright browsers
-        run: npm i playwright
+        run: npx i playwright
       - name: Start Storybook
         run: npm run storybook --ci --port 6006 &
 
