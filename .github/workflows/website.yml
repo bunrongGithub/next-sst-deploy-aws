@@ -23,8 +23,8 @@ jobs:
         run: npm install
 
       - name: Install Playwright browsers
-        run: npm i playwright
-        # This installs the required Playwright browsers
+        run: npx playwright install
+        # This command downloads the necessary Playwright browsers
 
       - name: Start Storybook
         run: npm run storybook --ci --port 6006 &
@@ -80,11 +80,3 @@ jobs:
 
       - name: Deploy to AWS with SST
         run: npx sst deploy --stage prod
-
-
-
-
-
-
-
-
